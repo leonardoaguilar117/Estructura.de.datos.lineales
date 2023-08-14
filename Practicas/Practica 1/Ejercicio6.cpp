@@ -33,7 +33,4 @@ int main() {
         cout<<arrayB[i];
     }
     
-
-
-
 }

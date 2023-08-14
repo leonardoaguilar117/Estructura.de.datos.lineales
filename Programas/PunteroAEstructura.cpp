@@ -8,27 +8,27 @@ struct fecha{
 	unsigned int aa;
 };
 
-//Prototipo de función escribir con un puntero de tipo fecha de parametro
+//Prototipo de funciÃ³n escribir con un puntero de tipo fecha de parametro
 void escribir (struct fecha *p);
 
 int main(){
 	struct fecha *hoy; //puntero de tipo fecha 
 	
 	hoy = (struct fecha*)malloc(sizeof(struct fecha)); //Reserva memoria con calloc 
-	//(dato tipo struct fecha)calloc(3 digitos,de tamaño(struct fecha));
+	//(dato tipo struct fecha)calloc(3 digitos,de tamano(struct fecha));
 	
-	printf("Introduce la fecha (dia-mes-año)\n");
+	printf("Introduce la fecha (dia-mes-ano)\n");
 	printf("Introduce el dia: ");
 	scanf("%u",&hoy->dia);
 		
 	printf("Introduce el mes ");
 	scanf("%u",&hoy->mes);
 	
-	printf("Introduce el año: ");
+	printf("Introduce el aï¿½o: ");
 	scanf("%u",&hoy->aa);
 	
-	/*Si se define un puntero en un struct este nos ayudará a ingresar los datos requeridos o bien sacarlos datos para 
-	una operación o una impresión. Por cada dato a introducir en el struct utilizamos el operador -> que se usa para acceder 
+	/*Si se define un puntero en un struct este nos ayudara a ingresar los datos requeridos o bien sacarlos datos para 
+	una operacion o una impresion. Por cada dato a introducir en el struct utilizamos el operador -> que se usa para acceder 
 	a un miembro de una estructura al que hace referencia el puntero*/
 	
 	escribir(hoy);
@@ -39,7 +39,7 @@ int main(){
 }
 
 void escribir (struct fecha *p){
-	printf("Dia: %d Mes: %d Año: %d",p->dia,p->mes, p->aa);
+	printf("Dia: %d Mes: %d Ano: %d",p->dia,p->mes, p->aa);
 }
 
 

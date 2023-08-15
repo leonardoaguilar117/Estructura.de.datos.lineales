@@ -3,7 +3,7 @@
 using namespace std;
 
 /*Prototipos de funcion*/
-int agregar(int matricula[], int promedio[], string nombre[], int n);
+string agregar(int matricula[], int promedio[], string nombre[], int n);
 void buscar(int matricula);
 void insertar(int matricula[], int promedio[], string nombre[]);
 
@@ -20,6 +20,7 @@ int main(){
     cout<<"Ingrese los valores de su matriz"<<endl;
     agregar(matricula,promedio,nombre,n);
 
+
     cout<<"Digite una opcion: "<<endl;
     cout<<"1-Agregar elemento al final"<<endl;
     cout<<"2-Agregar elemento en medio"<<endl;
@@ -30,7 +31,7 @@ int main(){
     return 0;
 }
 
-int agregar(int *matricula, int *promedio, string *nombre,int n){
+string agregar(int *matricula, int *promedio, string *nombre,int n){
     int mat=0,pro;
     string nom;
 
@@ -45,7 +46,7 @@ int agregar(int *matricula, int *promedio, string *nombre,int n){
         cin>>pro;
         promedio[i] = pro;
     }
-    return matricula[n],promedio[n];
+    return matricula[n],promedio[n], nombre[n];
 }
 
 

@@ -3,51 +3,92 @@
 using namespace std;
 
 /*Prototipos de funcion*/
-string agregar(int matricula[], int promedio[], string nombre[], int n);
-void buscar(int matricula);
-void insertar(int matricula[], int promedio[], string nombre[]);
-
-
+void mostrarLista(long int matricula[], string nombre[],float promedio[], int n);
+void buscarAlumno(long matric_a_buscar,string nombre[],float promedio[],long matricula[], int n);
 int main(){
-    int n;
+    //Variables auxiliares
+    int n,opc;
+    long mat;
+    float pro;
+    string nom;
+    
+    //Ingreso de tamaño y creación de arrays
     cout<<"Cuantos alumnos existen en lista: ";
     cin>>n;
     n+=2;
-
-    int matricula[n],promedio[n];
+    long matricula[n];
+    float promedio[n];
     string nombre[n];
 
+    //Ingreso de valores a arrays
     cout<<"Ingrese los valores de su matriz"<<endl;
-    agregar(matricula,promedio,nombre,n);
-
-
-    cout<<"Digite una opcion: "<<endl;
-    cout<<"1-Agregar elemento al final"<<endl;
-    cout<<"2-Agregar elemento en medio"<<endl;
-    cout<<"3-Borrar elemento segun indice"<<endl;
-    cout<<"4-Modificar elemento"<<endl;
-    cout<<"5-Mostrar elementos"<<endl;
-    cout<<"6-Eliminar todos los elementos"<<endl;
-    return 0;
-}
-
-string agregar(int *matricula, int *promedio, string *nombre,int n){
-    int mat=0,pro;
-    string nom;
-
     for(int i=0; i<n-2; i++){
+        cin.ignore();
         cout<<"Inserte nombre "<<i+1<<": ";
-        cin>>nom;
+        getline(cin, nom);
         nombre[i] = nom;
-        cout<<"Inserte matricula: "<<i+1<<": ";
+        cout<<"Ingresa la matricula: ";
         cin>>mat;
         matricula[i] = mat;
-        cout<<"Inserte promedio "<<i+1<<": ";
+        cout<<"Ingresa el promedio: ";
         cin>>pro;
         promedio[i] = pro;
+        
     }
-    return matricula[n],promedio[n], nombre[n];
+
+
+    
+    //Menu de opciones con llamada a funciones externas para hacer los procedimientos
+    do{
+        cout<<"Digite una opcion "<<endl;
+        cout<<"1-Mostrar toda la lista "<<endl;
+        cout<<"2-Buscar si un alumno existe "<<endl;
+        cout<<"3-Ingresar alumno nuevo"<<endl;
+        cout<<"4-Eliminar alumno "<<endl;
+        cout<<"5-Modificar alumno "<<endl;
+        cout<<"6-Eliminar todos los elementos"<<endl;
+        cout<<"7-Salir"<<endl;
+        cin>>opc;
+
+        //Opciones
+        switch(opc){
+            case 1: mostrarLista(matricula, nombre, promedio, n);
+            break;
+            case 2: 
+                cout<<"Digite la matricula a buscar: ";
+                cin>>mat;
+                buscarAlumno(mat, nombre, promedio, matricula, n);
+            break;
+            default:cout<<"ola";
+        }
+    }while(opc!=7);
 }
 
 
+
+
+void mostrarLista(long matricula[], string nombre[],float promedio[], int n){
+    for(int i=0; i<n-2;i++){
+        cout<<"Nombre: "<<nombre[i]<<endl;
+        cout<<"Matricula: "<<matricula[i]<<endl;
+        cout<<"Promedio: "<<promedio[i]<<endl;
+        cout<<"\n";
+    }
+}
+
+void buscarAlumno(long matric_a_buscar,string nombre[],float promedio[],long matricula[], int n){
+    int flag;
+    for(int i=0; i<n-2;i++){
+        if(matric_a_buscar == matricula[i]){
+            cout<<"Alumno encontrado: "<<endl;
+            cout<<"Nombre: "<<nombre[i]<<endl;
+            cout<<"Matricula: "<<matricula[i]<<endl;
+            cout<<"Promedio: "<<promedio[i]<<endl;
+            flag = 1;
+        }
+    }
+    (flag == 1) ? "Alumno no encontrado" : " " ; 
+    
+    
+}
 

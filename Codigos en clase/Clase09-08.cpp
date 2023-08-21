@@ -5,6 +5,8 @@ using namespace std;
 /*Prototipos de funcion*/
 void mostrarLista(long int matricula[], string nombre[],float promedio[], int n);
 void buscarAlumno(long matric_a_buscar,string nombre[],float promedio[],long matricula[], int n);
+void recorrerDer();
+
 int main(){
     //Variables auxiliares
     int n,opc;
@@ -65,8 +67,6 @@ int main(){
 }
 
 
-
-
 void mostrarLista(long matricula[], string nombre[],float promedio[], int n){
     for(int i=0; i<n-2;i++){
         cout<<"Nombre: "<<nombre[i]<<endl;
@@ -77,7 +77,7 @@ void mostrarLista(long matricula[], string nombre[],float promedio[], int n){
 }
 
 void buscarAlumno(long matric_a_buscar,string nombre[],float promedio[],long matricula[], int n){
-    int flag;
+    int flag = 0;
     for(int i=0; i<n-2;i++){
         if(matric_a_buscar == matricula[i]){
             cout<<"Alumno encontrado: "<<endl;
@@ -87,7 +87,7 @@ void buscarAlumno(long matric_a_buscar,string nombre[],float promedio[],long mat
             flag = 1;
         }
     }
-    (flag == 1) ? "Alumno no encontrado" : " " ; 
+    (flag == 0) ? "Alumno no encontrado" : " " ; 
     
     
 }

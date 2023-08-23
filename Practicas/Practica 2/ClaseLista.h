@@ -1,5 +1,5 @@
 #define TAM 40
-
+#include <string>
 class ListaArreglos{
 
     public:

@@ -18,7 +18,7 @@ int main(){
     listaPrueba.eliminar(5);
     cout<<"Lista modificada: "<<listaPrueba.toString()<<endl;
 
+    //Busqueda de 4
     cout<<listaPrueba.buscar(4);
-
 
 }

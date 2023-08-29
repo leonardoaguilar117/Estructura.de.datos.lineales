@@ -13,6 +13,7 @@ int main(){
         lista2.insertar(j, i);
         j++;
     }
+    
     cout<<"Lista 1: "<<lista1.toString()<<endl;
     cout<<"Lista 2: "<<lista2.toString()<<endl;
     

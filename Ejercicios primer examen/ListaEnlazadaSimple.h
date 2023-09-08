@@ -256,7 +256,7 @@ Nodo* ListaEnlazadaSimple::regresoNodoN(int x){
     return nodoEncontrado; 
 }
 
-//Inciso 3 y 4
+//Inciso 2
 int ListaEnlazadaSimple::ocurrencias(int x){
     Nodo* aux = cabeza;
     int ocurrencia;
@@ -298,8 +298,6 @@ void ListaEnlazadaSimple::rotar(int k){
     delete penultimo;
     delete iterador;
 }
-
-
 
 
 //Inciso 8 (elimina las ocurrencias según x)

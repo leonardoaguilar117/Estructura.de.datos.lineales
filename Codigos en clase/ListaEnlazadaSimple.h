@@ -171,17 +171,12 @@ bool ListaEnlazadaSimple::insertar(int x, Nodo *p){
 
 
   bool res = true;
-
-  
-
     if (p == NULL)
 {
-  
 
         if (esVacia())
         {
            
-         
             inserta_vacio(x);
         }
         else{

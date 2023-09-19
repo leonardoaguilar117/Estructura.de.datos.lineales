@@ -12,15 +12,17 @@ template <typename T>
         private:
             Nodo<T>* siguiente;
             Nodo<T>* previo;
-        T elem;
+            T elem;
     };
 
+//Constructor
 template <typename T>
 Nodo<T>::Nodo() {
     siguiente = NULL;
     previo = NULL;
 }
 
+//Constructor con elemento
 template <typename T>
 Nodo<T>::Nodo(T elemento) {
     siguiente = NULL;

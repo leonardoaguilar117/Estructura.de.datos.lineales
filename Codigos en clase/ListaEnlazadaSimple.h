@@ -2,7 +2,7 @@
 #include <string>
 
 class ListaEnlazadaSimple{
-    private:
+    public:
         Nodo *cabeza;
         Nodo *cola;
         int num_elemento;
@@ -70,9 +70,7 @@ int ListaEnlazadaSimple::getNumElementos() const{
 Nodo* ListaEnlazadaSimple::siguiente(Nodo *pos) const{
     
     if(pos!=NULL){
-        
-        return pos->getSig(); //Mas pro
-        //(*pos).getSig(); es equivalente
+        return pos->getSig();
     }
     else{
         return NULL;
@@ -143,13 +141,13 @@ Nodo *aux=cabeza;
 bool encontrado=false;
     
     while(aux!=NULL && !encontrado){
-        if(aux->getSig()== pos){
+        if(aux->getSig() == pos){
+
             encontrado=true;
-            
         }
-        else
+        else{
             aux=aux->getSig();
-    }
+        }
     
     return aux;
     

@@ -54,3 +54,7 @@ template <typename T>
 T Nodo<T>::getElemento(){
 	return elem;
 }
+
+
+
+

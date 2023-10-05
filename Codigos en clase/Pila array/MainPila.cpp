@@ -32,7 +32,7 @@ int main(){
     Pila.hacerVacia();
     (Pila.esVacia() == true) ? cout << "Es vacia": cout<< "No esta vacia"<< endl;
 
-
+    
 
     return 0;
 }

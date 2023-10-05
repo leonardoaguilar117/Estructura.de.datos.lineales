@@ -9,7 +9,7 @@ template <typename T>
             void setPrevio(Nodo<T>* previo); // Setter al apuntador previo gen�rico
             T getElemento(); //Get elemento Generico
             // void setElemento(T elem);
-        private:
+        public:
             Nodo<T>* siguiente;
             Nodo<T>* previo;
             T elem;

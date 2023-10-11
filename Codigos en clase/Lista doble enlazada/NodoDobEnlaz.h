@@ -1,18 +1,20 @@
+#include <string>
 template <typename T>
     class Nodo {
         public:
-            Nodo(); //Constructor
-            Nodo(T elemento); //Constructor que recibe tipo de datos generico
+            Nodo<T>* siguiente;
+            Nodo<T>* previo;
+            T elem;
+            
+        public:
+            Nodo(); 
+            Nodo(T elemento); 
             Nodo<T> *getPrevio(); //Getter al apuntador previo gen�rico
             Nodo<T> *getSiguiente(); //Getter al apuntador siguiente generico
             void setSiguiente(Nodo<T>* siguiente); //Setter al apuntador siguiente gen�rico
             void setPrevio(Nodo<T>* previo); // Setter al apuntador previo gen�rico
             T getElemento(); //Get elemento Generico
             // void setElemento(T elem);
-        public:
-            Nodo<T>* siguiente;
-            Nodo<T>* previo;
-            T elem;
     };
 
 //Constructor

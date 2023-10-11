@@ -1,8 +1,9 @@
 #include "Nodo.h"
-#include <string>
+#include<iostream>
+using namespace std; 
 
 class ListaEnlazadaSimple{
-    public:
+    private:
         Nodo *cabeza;
         Nodo *cola;
         int num_elemento;
@@ -10,9 +11,10 @@ class ListaEnlazadaSimple{
         void inserta_final(int x);
         void inserta_inicio(int x);
         void inserta_enmedio(int x,Nodo *p);
+
     public:
-       ListaEnlazadaSimple(); //Constructor
-        ~ListaEnlazadaSimple(); //Destructor
+        ListaEnlazadaSimple(); 
+        ~ListaEnlazadaSimple(); 
         bool insertar (int x, Nodo *p);
         bool eliminar(Nodo *p);
         Nodo* buscar (int x) const;
@@ -32,11 +34,11 @@ class ListaEnlazadaSimple{
 
 void ListaEnlazadaSimple::invierte(){
     
-    Nodo* anterior=NULL;
+    Nodo* anterior=nullptr;
     Nodo*actual=cabeza;
     Nodo *siguiente;
     
-    while(actual !=NULL ){
+    while(actual !=nullptr){
         siguiente=actual->getSig();
         actual->setSig(anterior);
         anterior=actual;
@@ -46,73 +48,54 @@ void ListaEnlazadaSimple::invierte(){
     Nodo *aux=cabeza;
     cabeza=cola;
     cola=aux;
-    
-    
-    
-    
-    
-    
+  
 }
 
 ListaEnlazadaSimple::ListaEnlazadaSimple(){
-    cabeza=NULL;
-    cola=NULL;
+    cabeza=nullptr;
+    cola=nullptr;
     num_elemento=0;
-    
-    
 }
 
 int ListaEnlazadaSimple::getNumElementos() const{
-    
     return num_elemento;
 }
 
 Nodo* ListaEnlazadaSimple::siguiente(Nodo *pos) const{
-    
-    if(pos!=NULL){
-        return pos->getSig();
+    if(pos!=nullptr){
+        return pos->getSig(); 
     }
     else{
-        return NULL;
+        return nullptr;
     }
 }
 
 Nodo* ListaEnlazadaSimple::fin() const{
-    return NULL;
-    
+    return nullptr;
 }
 
-Nodo* ListaEnlazadaSimple::primera() const {
-    
-    return cabeza;
-    
+Nodo* ListaEnlazadaSimple::primera() const { 
+    return cabeza; 
 }
 
 bool ListaEnlazadaSimple::esVacia() const {
-    return(num_elemento==0);
-    
-    
+    return(num_elemento==0); 
 }
 
 int ListaEnlazadaSimple::obtener(Nodo *p) const{
-    
-    return p->getElemento();
-    //return (*p).getElemento();
-    
+    return p->getElemento();  
 }
 
 Nodo *ListaEnlazadaSimple::buscar(int x) const {
     Nodo *pos=cabeza;
     bool encontrado=false;
     
-    while(pos!=NULL && !encontrado){
+    while(pos!=nullptr && !encontrado){
         if(pos->getElemento()==x){
             encontrado=true;
-    
         }
         else
             pos=pos->getSig();        
-        
     }
     return pos;
 }
@@ -136,132 +119,81 @@ void ListaEnlazadaSimple::inserta_inicio(int x){
 
 
 Nodo * ListaEnlazadaSimple::anterior(Nodo *pos) const{
+    Nodo *aux=cabeza;
+    bool encontrado=false;
     
-Nodo *aux=cabeza;
-bool encontrado=false;
-    
-    while(aux!=NULL && !encontrado){
-        if(aux->getSig() == pos){
-
+    while(aux!=nullptr && !encontrado){
+        if(aux->getSig()== pos){
             encontrado=true;
+            
         }
-        else{
+        else
             aux=aux->getSig();
-        }
-    
+    }
     return aux;
     
 }
 
 void ListaEnlazadaSimple::inserta_enmedio(int x,Nodo *p){
-    cout<<"Inserta enmedio2" <<endl;
     cout<<p->getElemento()<<endl;
-    cout<<"Despues de imprimir "<<endl;
     Nodo *aux=new Nodo(x,p);
-    cout<<"Despues de crear "<<endl;
     Nodo *ant= anterior(p);
-    cout<<"Despues de anterior"<<endl;
     ant->setSig(aux);
-    cout<<"Despues de cambiar siguiente "<<endl;
 }
 
 bool ListaEnlazadaSimple::insertar(int x, Nodo *p){
+    bool res = true;
 
 
-  bool res = true;
-    if (p == NULL)
-{
-
-        if (esVacia())
-        {
-           
+    if (p == nullptr){
+        if (esVacia()){
             inserta_vacio(x);
         }
         else{
              inserta_final(x);
-      
-            
         }
-       
-           
-}
-    else if (p == cabeza )
-{
-            inserta_inicio(x);
-        
-}
-    else
-    {
-cout<<"Inserta enmedio "<<endl;
-      inserta_enmedio(x,p);
-
     }
-  num_elemento += 1;
 
-    return res;
-
-    
-    
-
+    else if (p == cabeza ){
+            inserta_inicio(x);  
+    }
+    else{
+        cout<<"Inserta enmedio "<<endl;
+        inserta_enmedio(x,p);
+    }
+        num_elemento += 1;
+        return res;
 }
 
 
 
 bool ListaEnlazadaSimple::eliminar(Nodo *p){
-
 	bool res=false;
+	Nodo *temp;
 
-		Nodo *temp;
-
-	if(!esVacia() && p!=NULL){
-
-		
-
-		//Si se tiene que quitar la cabeza
-
+	if(!esVacia() && p!=nullptr){
 		if(p == cabeza){
-
-			//Se guarda temporalmente la posicion actual
-
 			temp=cabeza;
-
-			//Se actualiza la nueva cabeza
-
 			cabeza=cabeza->getSig();
-
-			//Se borra el nodo cabeza antiguo
-
 			delete temp;
-
 			res=true;
-
 			num_elemento--;
-
 			if(num_elemento==1){
-
-				//Si es el �nico elemento, se actualiza la cola
-
 				cola=cabeza;
-
 			}
 
 		}
 
-		else{ //Es cualquier otro nodo
-
-		//Se busca su antecesor
-
+		else{
 		Nodo *q = cabeza;
-
 		Nodo *anterior;
 
         while (q->getSig() != p
-
-               && q->getSig() != NULL)
+            && q->getSig() != nullptr)
 
             q = q->getSig();
 
-        if (q->getSig() != NULL){
+        if (q->getSig() != nullptr){
 
         		temp=p;
 
@@ -281,109 +213,48 @@ bool ListaEnlazadaSimple::eliminar(Nodo *p){
 
 		}
 
-          
-
-		
-
-			
-
 		}
 
-		
-
-
-
 	}
-
-//	//Si fuera el �nico nodo en la lista (cabeza == null y la lista no est� vac�a)
-
-//	delete p;
-
-//	cabeza =NULL;
-
-//	cola=NULL;
-
-//	numElementos=0;
-
-	
-
-	
-
-	//TO DO
-
 	return res;
 
 }
 
 string ListaEnlazadaSimple::toString() const {
+    string elem="";
+    Nodo *p= cabeza;
 
-string elem="";
+    while(p!= nullptr){
+    	elem+=std::to_string(p->getElemento())+"\n";
+    	p=p->getSig();
 
-Nodo *p= cabeza;
-
-//No he llegado al final de la Lista
-
-while(p!= NULL){
-
-	elem+=std::to_string(p->getElemento())+"\n";
-
-	p=p->getSig();
-
-	
-
-}
-
-return elem;
-
+    }
+    return elem;
 }
 
 void ListaEnlazadaSimple::hacerVacia(){
-
-
-
-	 Nodo *q = cabeza;
-
-	 Nodo *temp;
-
-        while (  q!= NULL){
-
-        	temp=q;
-
-			q = q->getSig();
-
-        	delete temp;
-
-        	
-
-		}
-
-    cabeza=cola=NULL;
-
+	Nodo *q = cabeza;
+	Nodo *temp;
+    while (q!= nullptr){
+    	temp=q;
+		q = q->getSig();
+    	delete temp;
+	}
+    cabeza=cola=nullptr;
     num_elemento=0;
-
-      
-
 }
+
 ListaEnlazadaSimple::~ListaEnlazadaSimple(){
 
-	 Nodo *q = cabeza;
+	Nodo *q = cabeza;
+	Nodo *temp;
 
-	 Nodo *temp;
-
-        while (  q!= NULL){
-
-        	temp=q;
-
-			q = q->getSig();
-
-        	delete temp;
-
-        	
-
-		}
-
-	
-
+    while (q!= nullptr){
+    	temp=q;
+		q = q->getSig();
+    	delete temp;
+	}
 } 
+
 
 

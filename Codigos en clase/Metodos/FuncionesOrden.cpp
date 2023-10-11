@@ -3,21 +3,25 @@
 #include <ctime> 
 using namespace std;
 
-double tiempoEjecucion(unsigned t0, unsigned t1){
-    double time = (double(t1-t0)/CLOCKS_PER_SEC);
-    return time;
-}
-
 void imprimirArray(int array[], int tam){
     for(int i=0; i<tam; i++){
         cout<<array[i]<<endl;
     }
 }
+
 void rellenarArrayRAND(int array[], int tam){
     int a = 0;
     for(int i = 0; i<tam; i++){
         a = rand() % 100;
         array[i] = a;
+    }
+}
+
+void rellenarArrayDec(int array [], int tam){
+    int j=0;
+    for(int i=tam; i>0;i--){
+        array[j]=i;
+        j++;
     }
 }
 
@@ -70,6 +74,7 @@ void selectionSort(int arr[], int n) {
     }
 }
 
+
 //--------------- Quick sort y merge sort--------------//
 void combinar(int A[], int inicio, int medio, int fin) {
     int aux[fin - inicio + 1];
@@ -103,7 +108,6 @@ void combinar(int A[], int inicio, int medio, int fin) {
             h += 1;
         }
     }
-   
     h = 0;
     for (int k = inicio; k <= fin; k++) {
         A[k] = aux[h];
@@ -225,3 +229,86 @@ double promedioMerge(int array[], int TAM){
     }
     return (tiempo / 10);
 }
+
+//----Promedios de array decremento ------//
+
+double promedioBurbujaDec(int array[], int TAM){
+    unsigned t1, t0;
+    double tiempo;
+    rellenarArrayDec(array, TAM);
+
+    for(int i = 0; i<10; i++){
+        t0 = clock();
+        bubbleSort(array, TAM);
+        t1 = clock();
+        tiempo += (double(t1-t0)/CLOCKS_PER_SEC); 
+        rellenarArrayDec(array, TAM);
+    }
+
+    return (tiempo / 10);
+}
+
+double promedioInsercionDec(int array[], int TAM){
+    unsigned t1, t0;
+    double tiempo;
+    rellenarArrayDec(array, TAM);
+
+    for(int i = 0; i<10; i++){
+        t0 = clock();
+        insertionSort(array, TAM);
+        t1 = clock();
+        tiempo += (double(t1-t0)/CLOCKS_PER_SEC); 
+        rellenarArrayDec(array, TAM);
+    }
+    return (tiempo / 10);
+}
+
+double promedioSeleccionDec(int array[], int TAM){
+    unsigned t1, t0;
+    double tiempo;
+    rellenarArrayDec(array, TAM);
+
+    for(int i = 0; i<10; i++){
+        t0 = clock();
+        selectionSort(array, TAM);
+        t1 = clock();
+        tiempo += (double(t1-t0)/CLOCKS_PER_SEC); 
+        rellenarArrayDec(array, TAM);
+    }
+    return (tiempo / 10);
+}
+
+double promedioQuickDec(int array[], int TAM){
+    unsigned t1, t0;
+    double tiempo;
+    rellenarArrayDec(array, TAM);
+
+    for(int i = 0; i<10; i++){
+        t0 = clock();
+        quickSort(array, 0,TAM);
+        t1 = clock();
+        tiempo += (double(t1-t0)/CLOCKS_PER_SEC); 
+        rellenarArrayDec(array, TAM);
+    }
+    return (tiempo / 10);
+}
+
+double promedioMergeDec(int array[], int TAM){
+    unsigned t1, t0;
+    double tiempo;
+    rellenarArrayDec(array, TAM);
+
+    for(int i = 0; i<10; i++){
+        t0 = clock();
+        mergeSort(array, 0, TAM);
+        t1 = clock();
+        tiempo += (double(t1-t0)/CLOCKS_PER_SEC); 
+        rellenarArrayDec(array, TAM);
+    }
+    return (tiempo / 10);
+}
+
+
+
+
+

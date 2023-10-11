@@ -1,7 +1,6 @@
 #define TAM 40
 
 class ListaArreglos{
-
     //Atributos
     public:
         int arreglo[TAM];

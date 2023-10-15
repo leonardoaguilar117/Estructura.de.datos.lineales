@@ -49,7 +49,6 @@ int * insertionSort(int arr[], int n) {
             arr[j + 1] = arr[j];
             j--;
         }
-
         // Colocar la clave en su posición correcta
         arr[j + 1] = clave;
     }
@@ -153,6 +152,7 @@ void quickSort(int A[], int p, int r) {
     }
 }
 
+
 //-----    Funciones para obtención de promedio ------------//
 double promedioBurbuja(int array[], int TAM){
     unsigned t1, t0;
@@ -230,8 +230,8 @@ double promedioMerge(int array[], int TAM){
     return (tiempo / 10);
 }
 
-//----Promedios de array decremento ------//
 
+//----Promedios de array decremento ------//
 double promedioBurbujaDec(int array[], int TAM){
     unsigned t1, t0;
     double tiempo;

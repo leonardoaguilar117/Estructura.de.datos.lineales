@@ -1,4 +1,4 @@
-//------ Tiempos de ejecucion ------- Leonardo Aguilar Martínez ------ 2203025005 -------//
+//------ Tiempos de ejecucion ------- Leonardo Aguilar Martínez Valeria Perez de Celis Martinez------ 2203025005 -------//
 #include <iostream>
 #include "FuncionesOrden.cpp"
 using namespace std;

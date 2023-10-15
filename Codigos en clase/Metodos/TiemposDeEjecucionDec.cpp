@@ -1,4 +1,4 @@
-//------ Tiempos de ejecucion ------- Leonardo Aguilar Martínez ------ 2203025005 -------//
+//------ Tiempos de ejecucion ------- Leonardo Aguilar Martínez Valeria Perez de Celis Martinez------ 2203025005 -------//
 #include <iostream>
 #include "FuncionesOrden.cpp"
 using namespace std;
@@ -8,12 +8,12 @@ int main(){
     int increm = 10;
     double  proBurb[4], promInser[4], promSelec[4], promQuick[4], promMerge[4];
 
-//--------- Array decrementado ---------//
+//----------- Array decrementado -----------//
     proBurb[0] = promedioBurbujaDec(Array_A, 10);
     proBurb[1] = promedioBurbujaDec(Array_B, 100);
     proBurb[2] = promedioBurbujaDec(Array_C, 1000);
     proBurb[3] = promedioBurbujaDec(Array_D, 10000);
-   
+
     promInser[0] = promedioInsercionDec(Array_A, 10);
     promInser[1] = promedioInsercionDec(Array_B, 100);
     promInser[2] = promedioInsercionDec(Array_C, 1000);

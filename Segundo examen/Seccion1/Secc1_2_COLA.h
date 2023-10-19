@@ -150,7 +150,7 @@ if(!esVacia()){
 	return salida;
 }
 
-
+//--------- Inversión de cola --------//
 template <typename E>
 void ColaArreglo<E>::invierte(){
 	int arrayAux[fin+1], j=0;
@@ -163,6 +163,5 @@ void ColaArreglo<E>::invierte(){
 	for(int i=0; i<fin; i++){
 		elementos[i] = arrayAux[i];
 	}
-	
 }
 

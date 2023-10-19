@@ -22,7 +22,7 @@ int main(){
             printf("Introduce un numero dentro del rango\n");
             }
     }while(dato != 0);
-
+    
     printPila(pilaPrincipal);
 
     Nodo *aux = pilaPrincipal->cabeza;
